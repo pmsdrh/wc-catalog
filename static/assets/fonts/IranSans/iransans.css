@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "IRAN Sans Regular";
+    src: url("files/0b0a8c345731751b990403a2cf40fbec.eot"); /* IE9*/
+    src: url("files/0b0a8c345731751b990403a2cf40fbec.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("files/0b0a8c345731751b990403a2cf40fbec.woff2") format("woff2"), /* chrome、firefox */ url("files/0b0a8c345731751b990403a2cf40fbec.woff") format("woff"), /* chrome、firefox */ url("files/0b0a8c345731751b990403a2cf40fbec.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url("files/0b0a8c345731751b990403a2cf40fbec.svg#IRAN Sans Regular") format("svg"); /* iOS 4.1- */
+}

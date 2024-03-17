@@ -1,0 +1,66 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+
+{% block contents %}
+
+<table class="table table-dark table-striped-columns">
+    <thead>
+    <tr>
+        <th>
+            <div class="form-check form-switch">
+                <input class="select select-all form-check-input" onclick="" role="switch" type="checkbox">
+            </div>
+        </th>
+        <th scope="col">#</th>
+        <th scope="col">نام</th>
+        <th scope="col">قیمت</th>
+        <th scope="col">ویرایش/حذف</th>
+        <th scope="col">مشاهده</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in products %}
+    <tr id="tr-{{i.id}}">
+        <td class="selectbox" contenteditable="false">
+            <div class="form-check form-switch">
+                <input class="select form-check-input" onclick="" role="switch" type="checkbox">
+            </div>
+        </td>
+        <td class="id" scope="row">{{i.id}}</td>
+        <td class="name">{{i.name}}</td>
+        <td class="price">{{i.regular_price}}</td>
+        <td class="handler" contenteditable="false" id="handler-{{i.id}}">
+            <button class="btn btn-outline-success edit" id="edit-{{i.id}}" onclick="edit({{i.id}})" type="button">
+                ویرایش
+            </button>
+            /
+            <button class="btn btn-outline-danger delete" id="delete-{{i.id}}" type="button">حذف</button>
+        </td>
+        <td>
+            <a class="btn btn-outline-primary" href="{{i.permalink}}" target="_blank">مشاهده</a>
+        </td>
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>
+            <div class="form-check form-switch">
+                <input class="select select-all form-check-input" role="switch" type="checkbox">
+            </div>
+        </th>
+        <th scope="col">#</th>
+        <th scope="col">نام</th>
+        <th scope="col">قیمت</th>
+        <th scope="col">ویرایش/حذف</th>
+        <th scope="col">مشاهده</th>
+    </tr>
+
+    </tfoot>
+
+</table>
+
+{% endblock %}

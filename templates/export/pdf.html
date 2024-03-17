@@ -1,0 +1,42 @@
+{% load static %}
+{% load poll_extras %}
+
+<link crossorigin="anonymous" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" rel="stylesheet">
+
+<style>
+    * {
+        font-family: "B Yekan", serif !important;
+        font-size: 16px;
+    }
+</style>
+
+<div class="container" dir="rtl">
+
+    <table class="table" style="text-align:center; vertical-align: center !important;">
+        <thead>
+        <tr>
+            <th scope="col">نام</th>
+            <th scope="col">قیمت</th>
+            <th scope="col">توضیحات</th>
+            <th scope="col">تصویر</th>
+        </tr>
+        </thead>
+        <tbody style="vertical-align: center !important;">
+        {% for i in prds %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{% if i.regular_price %}{{i.regular_price|toman}}{% else %}تماس بگیرید{% endif %}</td>
+            <td>
+                {% if i.dimensions.length %} طول : {{ i.dimensions.length }} <br/>{% endif %}
+                {% if i.dimensions.width %} عرض : {{ i.dimensions.width }} <br/>{% endif %}
+                {% if i.dimensions.height %} ارتفاع : {{ i.dimensions.height }} <br/>{% endif %}
+                {% if i.weight %} وزن : {{ i.weight }} {% endif %}
+            </td>
+            <td><img alt="بدون تصویر" src="{{i.images.0.src|cut:'.jpg'}}-300x300.jpg" style="width: 220px;"></td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
